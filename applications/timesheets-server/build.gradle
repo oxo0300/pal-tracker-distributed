@@ -1,5 +1,7 @@
 apply from: "$projectDir/../server.gradle"
 
 dependencies {
+    compile "org.springframework.boot:spring-boot-starter-actuator"
+    compile "io.pivotal.spring.cloud:spring-cloud-services-starter-service-registry"
     compile project(":components:timesheets")
 }
