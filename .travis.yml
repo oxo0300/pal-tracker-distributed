@@ -22,8 +22,8 @@ jobs:
         - mysql -uroot < databases/create_databases.sql
         - ./gradlew testMigrate
       script:
-        - APPLICATION=allocations-pal-ojo
-        - ./gradlew clean :applications:${APPLICATION}:build
+        - APPLICATION=allocations
+        - ./gradlew clean :applications:${APPLICATION}-server:build
       before_deploy:
         - git config --local user.name "Travis CI"
         - git config --local user.email "travis@example.com"
@@ -32,7 +32,7 @@ jobs:
         provider: releases
         api_key: $GITHUB_OAUTH_TOKEN
         file:
-          - "applications/${APPLICATION}/build/libs/${APPLICATION}-server.jar"
+          - "applications/${APPLICATION}-server/build/libs/${APPLICATION}-server.jar"
         skip_cleanup: true
 
     - stage: build and publish
@@ -45,8 +45,8 @@ jobs:
         - mysql -uroot < databases/create_databases.sql
         - ./gradlew testMigrate
       script:
-        - APPLICATION=backlog-pal-ojo
-        - ./gradlew clean :applications:${APPLICATION}:build
+        - APPLICATION=backlog
+        - ./gradlew clean :applications:${APPLICATION}-server:build
       before_deploy:
         - git config --local user.name "Travis CI"
         - git config --local user.email "travis@example.com"
@@ -64,8 +64,8 @@ jobs:
         - mysql -uroot < databases/create_databases.sql
         - ./gradlew testMigrate
       script:
-        - APPLICATION=registration-pal-ojo
-        - ./gradlew clean :applications:${APPLICATION}:build
+        - APPLICATION=registration
+        - ./gradlew clean :applications:${APPLICATION}-server:build
       before_deploy:
         - git config --local user.name "Travis CI"
         - git config --local user.email "travis@example.com"
@@ -83,8 +83,8 @@ jobs:
         - mysql -uroot < databases/create_databases.sql
         - ./gradlew testMigrate
       script:
-        - APPLICATION=timesheets-pal-ojo
-        - ./gradlew clean :applications:${APPLICATION}:build
+        - APPLICATION=timesheets
+        - ./gradlew clean :applications:${APPLICATION}-server:build
       before_deploy:
         - git config --local user.name "Travis CI"
         - git config --local user.email "travis@example.com"
@@ -96,7 +96,7 @@ jobs:
       language: bash
       script:
         - echo "Downloading allocations server $RELEASE_TAG"
-        - wget -P applications/allocations-pal-ojo/build/libs https://github.com/$GITHUB_USERNAME/pal-tracker-distributed/releases/download/$RELEASE_TAG/allocations-pal-ojo-server.jar
+        - wget -P applications/allocations-server/build/libs https://github.com/$GITHUB_USERNAME/pal-tracker-distributed/releases/download/$RELEASE_TAG/allocations-server.jar
       before_deploy:
         - cp manifest-allocations.yml manifest.yml
         - echo "Deploying allocations server $RELEASE_TAG"
@@ -111,7 +111,7 @@ jobs:
       language: bash
       script:
         - echo "Downloading backlog server $RELEASE_TAG"
-        - wget -P applications/backlog-pal-ojo/build/libs https://github.com/$GITHUB_USERNAME/pal-tracker-distributed/releases/download/$RELEASE_TAG/backlog-pal-ojo-server.jar
+        - wget -P applications/backlog-server/build/libs https://github.com/$GITHUB_USERNAME/pal-tracker-distributed/releases/download/$RELEASE_TAG/backlog-server.jar
       before_deploy:
         - cp manifest-backlog.yml manifest.yml
         - echo "Deploying backlog server $RELEASE_TAG"
@@ -121,7 +121,7 @@ jobs:
       language: bash
       script:
         - echo "Downloading registration server $RELEASE_TAG"
-        - wget -P applications/registration-pal-ojo/build/libs https://github.com/$GITHUB_USERNAME/pal-tracker-distributed/releases/download/$RELEASE_TAG/registration-pal-ojo-server.jar
+        - wget -P applications/registration-server/build/libs https://github.com/$GITHUB_USERNAME/pal-tracker-distributed/releases/download/$RELEASE_TAG/registration-server.jar
       before_deploy:
         - cp manifest-registration.yml manifest.yml
         - echo "Deploying registration server $RELEASE_TAG"
@@ -131,7 +131,7 @@ jobs:
       language: bash
       script:
         - echo "Downloading timesheets server $RELEASE_TAG"
-        - wget -P applications/timesheets-pal-ojo/build/libs https://github.com/$GITHUB_USERNAME/pal-tracker-distributed/releases/download/$RELEASE_TAG/timesheets-pal-ojo-server.jar
+        - wget -P applications/timesheets-server/build/libs https://github.com/$GITHUB_USERNAME/pal-tracker-distributed/releases/download/$RELEASE_TAG/timesheets-server.jar
       before_deploy:
         - cp manifest-timesheets.yml manifest.yml
         - echo "Deploying timesheets server $RELEASE_TAG"

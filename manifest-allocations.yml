@@ -1,7 +1,7 @@
 ---
 applications:
 - name: allocations-pal-ojo
-  path: ./applications/allocations-server/build/libs/allocations-pal-ojo-server.jar
+  path: ./applications/allocations-server/build/libs/allocations-server.jar
   routes:
     - route: allocations-pal-ojo.cfapps.io
   memory: 1G
