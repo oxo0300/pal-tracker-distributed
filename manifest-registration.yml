@@ -3,7 +3,7 @@ applications:
 - name: registration-pal-ojo
   path: ./applications/registration-server/build/libs/registration-server.jar
   routes:
-    - route: registration-pal-ojo.apps.cfapps.io
+    - route: registration-pal-ojo.cfapps.io
   memory: 1G
   instances: 1
   env:
