@@ -1,7 +1,7 @@
 ---
 applications:
 - name: registration-pal-ojo
-  path: ./applications/registration-server/build/libs/registration-server.jar
+  path: ./applications/registration-server/build/libs/registration-pal-ojo-server.jar
   routes:
     - route: registration-pal-ojo.cfapps.io
   memory: 1G

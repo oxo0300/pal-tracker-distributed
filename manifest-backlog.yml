@@ -1,7 +1,7 @@
 ---
 applications:
 - name: backlog-pal-ojo
-  path: ./applications/backlog-server/build/libs/backlog-server.jar
+  path: ./applications/backlog-server/build/libs/backlog-pal-ojo-server.jar
   routes:
     - route: backlog-pal-ojo.cfapps.io
   memory: 1G
