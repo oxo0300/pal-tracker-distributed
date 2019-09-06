@@ -1,6 +1,6 @@
 ---
 applications:
-- name: allocations-pal-ojo
+- name: tracker-allocations
   path: ./applications/allocations-server/build/libs/allocations-server.jar
   routes:
     - route: allocations-pal-ojo.cfapps.io

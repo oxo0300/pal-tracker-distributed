@@ -1,6 +1,6 @@
 ---
 applications:
-- name: registration-pal-ojo
+- name: tracker-registration
   path: ./applications/registration-server/build/libs/registration-server.jar
   routes:
     - route: registration-pal-ojo.cfapps.io

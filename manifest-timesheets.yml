@@ -1,6 +1,6 @@
 ---
 applications:
-- name: timesheets-pal-ojo
+- name: tracker-timesheets
   path: ./applications/timesheets-server/build/libs/timesheets-server.jar
   routes:
     - route: timesheets-pal-ojo.cfapps.io
