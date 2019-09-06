@@ -1,13 +1,13 @@
 ---
 applications:
-- name: tracker-allocations
+- name: allocations-pal-ojo
   path: ./applications/allocations-server/build/libs/allocations-server.jar
   routes:
-  - route: allocations-pal-ojo.apps.chicken.pal.pivotal.io
+    - route: allocations-pal-ojo.apps.cfapps.io
   memory: 1G
   instances: 1
   env:
     JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
   services:
-  - tracker-allocations-database
-  - tracker-service-registry
+    - tracker-allocations-database
+    - tracker-service-registry
