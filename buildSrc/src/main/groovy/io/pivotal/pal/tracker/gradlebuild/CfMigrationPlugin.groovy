@@ -91,7 +91,7 @@ class CfMigrationPlugin implements Plugin<Project> {
                 sslParam = '?useSSL=true'
                 break
         }
-        extension.url = "jdbc:mysql://127.0.0.1:${TUNNEL_PORT}/${credentials['name']}${sslParam}"
+        extension.url = "jdbc:mysql://127.0.0.1:${TUNNEL_PORT}/${credentials['name']}${sslParam}&serverTimezone=UTC"
 
         extension.locations = ["filesystem:$project.projectDir/migrations"]
         return extension
